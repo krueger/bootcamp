@@ -1,19 +1,20 @@
-package hello;
+package greetingcard;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 @RedisHash
-public class Greeting {
+public class GreetingCard {
 
     @Id
     private long id;
+
     private String content;
 
-    public Greeting() {
+    public GreetingCard() {
     }
 
-    public Greeting(long id, String content) {
+    public GreetingCard(long id, String content) {
         this.id = id;
         this.content = content;
     }
@@ -25,4 +26,5 @@ public class Greeting {
     public String getContent() {
         return content;
     }
+
 }

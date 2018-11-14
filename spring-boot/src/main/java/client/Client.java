@@ -1,8 +1,7 @@
 package client;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
-import hello.Greeting;
+import greetingcard.GreetingCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -16,8 +15,8 @@ public class Client {
     public static void main(String args[]) {
         RestTemplate restTemplate = new RestTemplate();
         Map parameter = ImmutableMap.of("name", "Martin");
-        Greeting greeting = restTemplate.postForObject("http://localhost:8080/greeting?name={name}", null, Greeting.class, parameter);
-        log.info(greeting.getContent());
+        GreetingCard greetingCard = restTemplate.postForObject("http://localhost:8080/greetingCard?name={name}", null, GreetingCard.class, parameter);
+        log.info(greetingCard.getContent());
     }
 
 }

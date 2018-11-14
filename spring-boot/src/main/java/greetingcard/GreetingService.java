@@ -1,4 +1,4 @@
-package hello;
+package greetingcard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +19,14 @@ public class GreetingService {
         this.greetingRepository = greetingRepository;
     }
 
-    public Greeting create(String name) {
-        Greeting greeting = new Greeting(counter.incrementAndGet(), String.format(template, name));
-        greetingRepository.save(greeting);
-        return greeting;
+    public GreetingCard create(String name) {
+        GreetingCard greetingCard = new GreetingCard(counter.incrementAndGet(), String.format(template, name));
+        greetingRepository.save(greetingCard);
+        return greetingCard;
     }
 
-    public Greeting find(long id) {
-        Optional<Greeting> greetingOptional = greetingRepository.findById(id);
+    public GreetingCard find(long id) {
+        Optional<GreetingCard> greetingOptional = greetingRepository.findById(id);
         return greetingOptional.orElseThrow(RuntimeException::new);
     }
 
